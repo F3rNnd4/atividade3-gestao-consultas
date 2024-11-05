@@ -71,3 +71,9 @@ FROM pacientes p
 LEFT JOIN consultas c ON p.id_paciente = c.id_paciente
 WHERE c.id_paciente IS NULL;
 
+--Crie uma consulta que mostre apenas os médicos que ainda não realizaram nenhuma consulta--
+
+SELECT m.nome, m.especialidade
+FROM medicos m
+LEFT JOIN consultas c ON m.id_medico = c.id_medico
+WHERE c.id_medico IS NULL;
