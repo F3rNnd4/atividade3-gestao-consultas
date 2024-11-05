@@ -51,7 +51,6 @@ CONSTRAINT fk_medico FOREIGN KEY (id_medico) REFERENCES medicos(id_medico)
 INSERT INTO consultas (id_paciente, id_medico, data_consulta) VALUES
 (5, 1, '2023-09-10'),
 (4, 5, '2024-10-15'),
-(3, 2, '2024-11-05'),
 (2, 3, '2025-01-21'),
 (1, 4, '2025-01-30');
 
@@ -61,6 +60,14 @@ INSERT INTO consultas (id_paciente, id_medico, data_consulta) VALUES
 
 SELECT p.nome, m.nome, c.data_consulta, m.especialidade
 FROM consultas c
-JOIN pacientes p ON p.id_paciente = c.id_paciente
-JOIN medicos m ON m.id_medico = c.id_medico
+INNER JOIN pacientes p ON p.id_paciente = c.id_paciente
+INNER JOIN medicos m ON m.id_medico = c.id_medico
 WHERE c.data_consulta <= CURRENT_DATE;
+
+--Crie uma consulta para mostrar todos os pacientes que não realizaram nenhuma consulta (passadas ou futuro)--
+
+SELECT p.nome, p.cpf
+FROM pacientes p
+LEFT JOIN consultas c ON p.id_paciente = c.id_paciente
+WHERE c.id_paciente IS NULL;
+
