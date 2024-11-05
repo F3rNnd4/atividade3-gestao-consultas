@@ -1,3 +1,17 @@
 --CREATE DATABASE--
 
 CREATE DATABASE hospital;
+
+--CREATE TABLES--
+
+CREATE TABLE pacientes (
+    id_paciente SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(11) UNIQUE NOT NULL,
+);
+
+CREATE TABLE medicos (
+    id_medico SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    especialidade VARCHAR(100) NOT NULL,
+)
