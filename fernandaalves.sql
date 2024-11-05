@@ -51,6 +51,16 @@ CONSTRAINT fk_medico FOREIGN KEY (id_medico) REFERENCES medicos(id_medico)
 INSERT INTO consultas (id_paciente, id_medico, data_consulta) VALUES
 (5, 1, '2023-09-10'),
 (4, 5, '2024-10-15'),
-(3, 2, '2024-10-15'),
-(2, 3, '2024-10-15'),
-(1, 4, '2024-10-15');
+(3, 2, '2024-11-05'),
+(2, 3, '2025-01-21'),
+(1, 4, '2025-01-30');
+
+--SELECTS--
+
+--Liste os pacientes que já tiveram consultas realizadas, mostrando o nome do paciente, o nome do médico, a data da consulta e a especialidade do médico--
+
+SELECT p.nome, m.nome, c.data_consulta, m.especialidade
+FROM consultas c
+JOIN pacientes p ON p.id_paciente = c.id_paciente
+JOIN medicos m ON m.id_medico = c.id_medico
+WHERE c.data_consulta <= CURRENT_DATE;
