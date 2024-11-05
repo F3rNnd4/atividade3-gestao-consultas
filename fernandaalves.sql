@@ -3,13 +3,15 @@
 CREATE DATABASE hospital;
 \c hospital;
 
---CREATE TABLES--
+--CREATE TABLE pacientes--
 
 CREATE TABLE pacientes (
 id_paciente SERIAL PRIMARY KEY,
 nome VARCHAR(100) NOT NULL,
 cpf VARCHAR(11) UNIQUE NOT NULL
 );
+
+--CREATE TABLE medicos--
 
 CREATE TABLE medicos (
 id_medico SERIAL PRIMARY KEY,
@@ -20,11 +22,11 @@ especialidade VARCHAR(100) NOT NULL
 --INSERTS em pacientes--
 
 INSERT INTO pacientes (nome, cpf) VALUES
-('Nathalia Santos', '12345678901'),
-('Daniel Braga', '12345678902'),
-('Felipe Silva', '12345678903'),
-('Jéssica Barros', '12345678904'),
-('Chico Lourenço', '12345678905');
+('Nathalia Santos', '46853158909'),
+('Daniel Braga', '91827362082'),
+('Felipe Silva', '48593621083'),
+('Jéssica Barros', '48261839621'),
+('Chico Lourenço', '47440012865');
 
 --INSERTS em medicos--
 
